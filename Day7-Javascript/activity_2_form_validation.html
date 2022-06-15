@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Information Entry</h2>
+    <form name = "login" action = "index.html" method = "post" onsubmit = "return handleSubmit()">
+        First Name <input type = "text" name = "fn" /> <br />
+        Last Name <input type = "text" name = "ln" /> <br />
+        Gender
+        <input type="radio" name="male" value="Male" id = "male"/>
+        <label for="male">Male</label>
+        <input type="radio" name="female" value="Female" id = "female"/>
+        <label for="female">Female</label> <br />
+        Password <input type = "password" name = "pw" /> <br />
+        Confirm Password <input type = "password" name = "cpw" /> <br />
+        Skills
+        <input type="checkbox" id="java" name="java" value="java">
+        <label for="java">Java</label>
+        <input type="checkbox" id="python" name="python" value="python">
+        <label for="python">Python</label>
+        <input type="checkbox" id="javas" name="javas" value="javas">
+        <label for="javas">Javascript</label> <br />
+        <input type = "submit" value = "Register" />
+    </form>
+    <script type = "text/javascript">
+        function handleSubmit() {
+            let loginForm = document.login;
+            let firstName = loginForm.fn;
+            let lastName = loginForm.ln;
+            let password = loginForm.pw;
+            let cpassword = loginForm.cpw;
+            console.log(loginForm.female.value);
+            if (firstName.value.length < 3) {
+                alert('First name must be more than 2 characters');
+                return false;
+            }
+            if (lastName.value.length < 2) {
+                alert('Last name must be more than 1 character');
+                return false;
+            }
+            let isMale = document.getElementById("male").checked;
+            let isFemale = document.getElementById("female").checked;
+            if (!isMale && !isFemale) {
+                alert('Please select your gender');
+                return false;
+            }
+            if (password.value != cpassword.value || (password.value.length == 0 || cpassword.value.length == 0)) {
+                alert('Passwords do not match');
+                return false;
+            }
+            let javacheck = document.getElementById("java").checked;
+            let pythoncheck = document.getElementById("python").checked;
+            let javascheck = document.getElementById("javas").checked;
+            if (!javacheck && !pythoncheck && !javascheck) {
+                alert('Please select at least one skill');
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
