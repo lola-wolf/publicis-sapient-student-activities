@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id = "c1" style = "border:2px solid black" width = "320" height = "320"></canvas>
+    <script type = 'text/javascript'>
+        let ctx = document.getElementById('c1').getContext('2d');
+        let colorIndex = 0;
+        for (let i = 0; i < 320; i += 40) {
+            for (let j = 0; j < 320; j += 40) {
+                if (colorIndex % 2 == 0) {
+                    ctx.fillStyle = 'white';
+                } else {
+                    ctx.fillStyle = 'black';
+                }
+                ctx.fillRect(j, i, 40, 40);
+                colorIndex++;
+            }
+            colorIndex++;
+        }
+    </script>
+    
+</body>
+</html>
