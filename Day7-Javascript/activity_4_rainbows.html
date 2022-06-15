@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id = "c1" width = "320" height = "320"></canvas>
+    <script type = 'text/javascript'>
+        let ctx = document.getElementById('c1').getContext('2d');
+        for (let i = 0; i < 7; i++) {
+            let colorPick = 'red';
+            switch(i) {
+                case 0:
+                    colorPick = 'red';
+                    break;
+                case 1:
+                    colorPick = 'orange';
+                    break;
+                case 2:
+                    colorPick = 'yellow';
+                    break;
+                case 3:
+                    colorPick = 'green';
+                    break;
+                case 4:
+                    colorPick = 'blue';
+                    break;
+                case 5:
+                    colorPick = 'purple';
+                    break;
+                case 6:
+                    colorPick = 'white';
+                    break;
+                default:
+                    colorPick = 'red';
+                    break;
+            }
+            ctx.fillStyle = colorPick;
+            ctx.beginPath();
+            ctx.arc(100, 100, 100 - (i * 7), 0, Math.PI, true);
+            ctx.fill();
+        }
+    </script>
+</body>
+</html>
